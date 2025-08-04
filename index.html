@@ -7,27 +7,42 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="container">
-            <h1>Budget Tracker</h1>
-            <div class="budget-app">
+        <div class="budget">
+            <h1 class="budget__title">Budget Tracker</h1>
+            <div class="budget__app">
             <!-- Left Panel -->
-             <div class="inputs-section">
-             <div class="input-box">
-                <h3>Add Budget</h3>
-                <input type="text" id="income-desrciption" placeholder="Budget Description">
-                <input type="number" id="income-amount" placeholder="Amount">
-                <button id="add-income">Add Budget</button>
+             <div class="budget__inputs">
+             <div class="budget__input__box">
+                <h3 class="budget__subtitle">Add Budget</h3>
+                <input type="text" class="budget__input budget__input__desc" id="income__desc" placeholder="Budget Description">
+                <input type="number" class="budget__input budget__input__amount" id="income__amount" placeholder="Amount">
+                <button class="budget__btn budget__btn__add-income" id="add-income">Add Budget</button>
         </div>
 
-        <div class="input-box">
-            <h3>Add Expense</h3>
-            <input type="text" id="expense-description" placeholder="Expense Name">
-            <input type="number" id="expense-amount" placeholder="Amount">
-            <button id="add-expense">Add Expense</button>
+        <div class="budget__input__box">
+            <h3 class="budget__subtitle">Add Expense</h3>
+            <input type="text" class="budget__input budget__input__desc" id="expense__desc" placeholder="Expense Name">
+            <input type="number" class="budget__input budget__input__amount" id="expense-amount" placeholder="Amount">
+            <button class="budget__btn budget__btn__add-expense" id="add-expense">Add Expense</button>
         </div>
 
-        <button class="reset-btn" id="reset-all">Reset All</button>
+        <button class="budget__btn budget__btn__reset" id="reset__all">Reset All</button>
         </div>
         <!-- Right Panel -->
+        <div class="budget__display">
+            <div class="budget summary">
+                <div class="budget__card">Total Budget: $<span id="total__budget">0</span></div>
+                <div class="budget__card">Total Expenses: $<span id="total__expenses">0</span></div>
+                <div class="budget__card">Budget Left: $<span id="budget__left">0</span></div>
+        </div>
+
+        <h3 class="budget__subtitle">Expense History:</h3>
+        <table class="budget__table">
+            <thead>
+                <tr>
+                    
+                </tr>
+            </thead>
+        </table>
     </body>
 </html>
