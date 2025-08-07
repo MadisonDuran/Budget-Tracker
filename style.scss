@@ -78,4 +78,123 @@ body {
             background: $danger-color;
         }
     }
+
+    &__display {
+        flex: 2;
+        padding: 20px;
+        border-radius: 10px;
+
+        &.budget__summary {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .budget__card {
+            @include gradient($primary-color, lighten($primary-color, 20%));
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            flex: 1;
+            text-align: center;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .budget__table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+
+            th, td {
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+                text-align: center;
+            }
+        }
+
+        button {
+            background: $danger-color;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+    }
+}
+
+// Mobile Media Query //
+@media (max-width: 600px) {
+  .budget {
+    width: 100%;
+    padding: 10px;
+
+    &__app {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__inputs, &__display {
+      padding: 10px;
+    }
+
+    &__btn {
+      padding: 8px;
+    }
+
+    &__card {
+      font-size: 1rem;
+      padding: 10px;
+    }
+
+    &__table th, &__table td {
+      padding: 6px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Tablet Media Query //
+@media (min-width: 601px) and (max-width: 900px) {
+  .budget {
+    width: 95%;
+
+    &__app {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    &__inputs, &__display {
+      padding: 15px;
+    }
+
+    &__card {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Desktop Media Query //
+@media (min-width: 901px) {
+  .budget {
+    width: 90%;
+
+    &__app {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    &__inputs, &__display {
+      padding: 20px;
+    }
+
+    &__card {
+      font-size: 1.2rem;
+    }
+  }
 }

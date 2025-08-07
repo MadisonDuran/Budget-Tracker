@@ -1,6 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: rgb(238, 242, 243);
+  background: #eef2f3;
   margin: 0;
   padding: 0;
   display: flex;
@@ -18,7 +18,7 @@ body {
 }
 .budget__title {
   text-align: center;
-  color: rgb(74, 144, 226);
+  color: #4a90e2;
   margin-bottom: 20px;
 }
 .budget__app {
@@ -28,7 +28,7 @@ body {
 }
 .budget__inputs {
   flex: 1;
-  background: rgb(247, 249, 252);
+  background: #f7f9fc;
   padding: 20px;
   border-radius: 10px;
 }
@@ -37,17 +37,17 @@ body {
 }
 .budget__subtitle {
   margin-bottom: 5px;
-  color: rgb(74, 144, 226);
+  color: #4a90e2;
 }
 .budget__input {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid rgb(204, 204, 204);
+  border: 1px solid #cccccc;
   border-radius: 5px;
 }
 .budget__btn {
-  background: rgb(74, 144, 226);
+  background: #4a90e2;
   color: white;
   border: none;
   padding: 10px;
@@ -60,7 +60,7 @@ body {
   opacity: 0.9;
 }
 .budget__btn--reset {
-  background: rgb(231, 76, 60);
+  background: #e74c3c;
 }
 .budget__display {
   flex: 2;
@@ -73,7 +73,7 @@ body {
   flex-wrap: wrap;
 }
 .budget__display .budget__card {
-  background: linear-gradient(135deg, rgb(74, 144, 226), rgb(74, 144, 226));
+  background: linear-gradient(135deg, #4a90e2, #4a90e2);
   color: white;
   padding: 15px;
   border-radius: 5px;
@@ -93,7 +93,7 @@ body {
   text-align: center;
 }
 .budget__display button {
-  background: rgb(231, 76, 60);
+  background: #e74c3c;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -157,4 +157,4 @@ body {
   .budget__card {
     font-size: 1.2rem;
   }
-}/*# sourceMappingURL=style.css.map */
+}
