@@ -125,7 +125,53 @@ function () {
         alert('Enter a valid expense description and amount');
       }
     }
+  }, {
+    key: "removeExpense",
+    value: function removeExpense(index) {
+      this.budget.removeExpense(index);
+      this.updateUI();
+    }
+  }, {
+    key: "resetAll",
+    value: function resetAll() {
+      if (confirm('Are you sure you want to reset everything?')) {
+        this.budget.resetAll();
+        this.updateUI();
+      }
+    }
+  }, {
+    key: "updateUI",
+    value: function updateUI() {
+      var _this2 = this;
+
+      this.totalBudget.textContent = this.budget.getTotalIncome().toFixed(2);
+      this.totalExpenses.textContent = this.budget.getTotalExpenses().toFixed(2);
+      this.budgetLeft.textContent = this.budget.getBudgetLeft().toFixed(2); // Update expense table
+
+      this.expenseList.innerHTML = '';
+      this.budget.expenses.forEach(function (exp, index) {
+        var row = document.createElement('tr');
+        row.innerHTML = "\n            <td>".concat(exp.desc, "</td>\n            <td>").concat(exp.amount.toFixed(2), "</td>\n            <td><button onclick=\"ui.removeExpense(").concat(index, ")\">Remove</button></td>\n        ");
+
+        _this2.expenseList.appendChild(row);
+      });
+    }
+  }, {
+    key: "clearInputs",
+    value: function clearInputs() {
+      for (var _len = arguments.length, inputs = new Array(_len), _key = 0; _key < _len; _key++) {
+        inputs[_key] = arguments[_key];
+      }
+
+      inputs.forEach(function (input) {
+        return input.value = '';
+      });
+    }
   }]);
 
   return BudgetUI;
-}();
+}(); // Initialize
+
+
+var budget = new Budget();
+var ui = new BudgetUI(budget);

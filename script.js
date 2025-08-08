@@ -77,7 +77,45 @@ class BudgetUI {
             this.clearInputs(this.expenseDesc, this.expenseAmount);
         } else {
             alert('Enter a valid expense description and amount');
-        }
+        
     }
 }
 
+removeExpense(index) {
+    this.budget.removeExpense(index);
+    this.updateUI();
+}
+
+resetAll() {
+    if(confirm('Are you sure you want to reset everything?')) {
+        this.budget.resetAll();
+        this.updateUI();
+    }
+}
+
+updateUI() {
+    this.totalBudget.textContent = this.budget.getTotalIncome().toFixed(2);
+    this.totalExpenses.textContent = this.budget.getTotalExpenses().toFixed(2);
+    this.budgetLeft.textContent = this.budget.getBudgetLeft().toFixed(2);
+
+    // Update expense table
+    this.expenseList.innerHTML = '';
+    this.budget.expenses.forEach((exp, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${exp.desc}</td>
+            <td>${exp.amount.toFixed(2)}</td>
+            <td><button onclick="ui.removeExpense(${index})">Remove</button></td>
+        `;
+        this.expenseList.appendChild(row);
+    });
+}
+
+clearInputs(...inputs) {
+    inputs.forEach(input => input.value = '');
+}
+}
+
+// Initialize
+const budget = new Budget();
+const ui = new BudgetUI(budget);
