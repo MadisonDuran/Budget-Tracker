@@ -67,12 +67,65 @@ function () {
   return Budget;
 }();
 
-var BudgetUI = function BudgetUI(budget) {
-  _classCallCheck(this, BudgetUI);
+var BudgetUI =
+/*#__PURE__*/
+function () {
+  function BudgetUI(budget) {
+    var _this = this;
 
-  this.budget = budget; //DOM Elements
+    _classCallCheck(this, BudgetUI);
 
-  this.incomeDesc = document.getElementById('income-desc');
-  this.incomeAmount = document.getElementById('income-amount');
-  this.expenseDesc = document.getElementById('expense-desc');
-};
+    this.budget = budget; //DOM Elements
+
+    this.incomeDesc = document.getElementById('income-desc');
+    this.incomeAmount = document.getElementById('income-amount');
+    this.expenseDesc = document.getElementById('expense-desc');
+    this.expenseAmount = document.getElementById('expense-amount');
+    this.totalBudget = document.getElementById('total-budget');
+    this.totalExpenses = document.getElementById('total-expenses');
+    this.budgetLeft = document.getElementById('budget-left');
+    this.expenseList = document.getElementById('expense-list'); // Event Listeners
+
+    document.getElementById('add-income').addEventListener('click', function () {
+      return _this.addIncome();
+    });
+    document.getElementById('add-expense').addEventListener('click', function () {
+      return _this.addExpense();
+    });
+    document.getElementById('reset-all').addEventListener('click', function () {
+      return _this.resetAll();
+    });
+  }
+
+  _createClass(BudgetUI, [{
+    key: "addIncome",
+    value: function addIncome() {
+      var desc = this.incomeDesc.value.trim();
+      var amount = parseFloat(this.incomeAmount.value);
+
+      if (desc && amount > 0) {
+        this.budget.addIncome(desc, amount);
+        this.updateUI();
+        this.clearInputs(this.incomeDesc, this.incomeAmount);
+      } else {
+        alert('Enter a valid income description and amount.');
+      }
+    }
+  }, {
+    key: "addExpense",
+    value: function addExpense() {
+      var desc = this.expenseDesc.value.trim();
+      var amount = parseFloat(this.expenseAmount.value);
+
+      if (desc && amount > 0) {
+        this.budget.addExpense(desc, amount);
+        this.updateUI();
+        this.clearInputs(this.expenseDesc, this.expenseAmount);
+      } else {
+        alert('Enter a valid expense description and amount');
+      }
+    }
+  }]);
+
+  return BudgetUI;
+}();
