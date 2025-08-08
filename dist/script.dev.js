@@ -75,16 +75,16 @@ function () {
 
     _classCallCheck(this, BudgetUI);
 
-    this.budget = budget; //DOM Elements
+    this.budget = budget; // DOM Elements (updated to match your HTML)
 
-    this.incomeDesc = document.getElementById('income-desc');
-    this.incomeAmount = document.getElementById('income-amount');
-    this.expenseDesc = document.getElementById('expense-desc');
+    this.incomeDesc = document.getElementById('income__desc');
+    this.incomeAmount = document.getElementById('income__amount');
+    this.expenseDesc = document.getElementById('expense__desc');
     this.expenseAmount = document.getElementById('expense-amount');
-    this.totalBudget = document.getElementById('total-budget');
-    this.totalExpenses = document.getElementById('total-expenses');
-    this.budgetLeft = document.getElementById('budget-left');
-    this.expenseList = document.getElementById('expense-list'); // Event Listeners
+    this.totalBudget = document.getElementById('total__budget');
+    this.totalExpenses = document.getElementById('total__expenses');
+    this.budgetLeft = document.getElementById('budget__left');
+    this.expenseList = document.getElementById('expense__list'); // Event Listeners (updated to match your HTML)
 
     document.getElementById('add-income').addEventListener('click', function () {
       return _this.addIncome();
@@ -92,7 +92,7 @@ function () {
     document.getElementById('add-expense').addEventListener('click', function () {
       return _this.addExpense();
     });
-    document.getElementById('reset-all').addEventListener('click', function () {
+    document.getElementById('reset__all').addEventListener('click', function () {
       return _this.resetAll();
     });
   }
@@ -151,7 +151,7 @@ function () {
       this.expenseList.innerHTML = '';
       this.budget.expenses.forEach(function (exp, index) {
         var row = document.createElement('tr');
-        row.innerHTML = "\n            <td>".concat(exp.desc, "</td>\n            <td>").concat(exp.amount.toFixed(2), "</td>\n            <td><button onclick=\"ui.removeExpense(").concat(index, ")\">Remove</button></td>\n        ");
+        row.innerHTML = "\n                <td>".concat(exp.desc, "</td>\n                <td>").concat(exp.amount.toFixed(2), "</td>\n                <td><button onclick=\"ui.removeExpense(").concat(index, ")\">Remove</button></td>\n            ");
 
         _this2.expenseList.appendChild(row);
       });
