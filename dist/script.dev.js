@@ -6,15 +6,18 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+// Budget Data Model Class
 var Budget =
 /*#__PURE__*/
 function () {
   function Budget() {
     _classCallCheck(this, Budget);
 
+    // Arrays to store income and expense objects
     this.income = [];
     this.expenses = [];
-  }
+  } // Add a new income entry
+
 
   _createClass(Budget, [{
     key: "addIncome",
@@ -23,7 +26,8 @@ function () {
         desc: desc,
         amount: amount
       });
-    }
+    } // Add a new expense entry
+
   }, {
     key: "addExpense",
     value: function addExpense(desc, amount) {
@@ -31,32 +35,37 @@ function () {
         desc: desc,
         amount: amount
       });
-    }
+    } // Remove an expense by index
+
   }, {
     key: "removeExpense",
     value: function removeExpense(index) {
       this.expenses.splice(index, 1);
-    }
+    } // Reset all income and expenses
+
   }, {
     key: "resetAll",
     value: function resetAll() {
       this.income = [];
       this.expenses = [];
-    }
+    } // Calculate total income
+
   }, {
     key: "getTotalIncome",
     value: function getTotalIncome() {
       return this.income.reduce(function (sum, i) {
         return sum + i.amount;
       }, 0);
-    }
+    } // Calculate total expenses
+
   }, {
     key: "getTotalExpenses",
     value: function getTotalExpenses() {
       return this.expenses.reduce(function (sum, e) {
         return sum + e.amount;
       }, 0);
-    }
+    } // Calculate remaining budget
+
   }, {
     key: "getBudgetLeft",
     value: function getBudgetLeft() {
@@ -65,7 +74,8 @@ function () {
   }]);
 
   return Budget;
-}();
+}(); // UI Controller Class
+
 
 var BudgetUI =
 /*#__PURE__*/
@@ -75,7 +85,7 @@ function () {
 
     _classCallCheck(this, BudgetUI);
 
-    this.budget = budget; // DOM Elements (updated to match your HTML)
+    this.budget = budget; // Get DOM elements for inputs and display
 
     this.incomeDesc = document.getElementById('income__desc');
     this.incomeAmount = document.getElementById('income__amount');
@@ -84,7 +94,7 @@ function () {
     this.totalBudget = document.getElementById('total__budget');
     this.totalExpenses = document.getElementById('total__expenses');
     this.budgetLeft = document.getElementById('budget__left');
-    this.expenseList = document.getElementById('expense__list'); // Event Listeners (updated to match your HTML)
+    this.expenseList = document.getElementById('expense__list'); // Set up event listeners for buttons
 
     document.getElementById('add-income').addEventListener('click', function () {
       return _this.addIncome();
@@ -95,7 +105,8 @@ function () {
     document.getElementById('reset__all').addEventListener('click', function () {
       return _this.resetAll();
     });
-  }
+  } // Handle adding income from UI
+
 
   _createClass(BudgetUI, [{
     key: "addIncome",
@@ -110,7 +121,8 @@ function () {
       } else {
         alert('Enter a valid income description and amount.');
       }
-    }
+    } // Handle adding expense from UI
+
   }, {
     key: "addExpense",
     value: function addExpense() {
@@ -124,13 +136,15 @@ function () {
       } else {
         alert('Enter a valid expense description and amount');
       }
-    }
+    } // Remove an expense by index and update UI
+
   }, {
     key: "removeExpense",
     value: function removeExpense(index) {
       this.budget.removeExpense(index);
       this.updateUI();
-    }
+    } // Reset all data after confirmation
+
   }, {
     key: "resetAll",
     value: function resetAll() {
@@ -138,7 +152,8 @@ function () {
         this.budget.resetAll();
         this.updateUI();
       }
-    }
+    } // Update all UI elements to reflect current data
+
   }, {
     key: "updateUI",
     value: function updateUI() {
@@ -155,7 +170,8 @@ function () {
 
         _this2.expenseList.appendChild(row);
       });
-    }
+    } // Clear input fields
+
   }, {
     key: "clearInputs",
     value: function clearInputs() {
@@ -170,7 +186,7 @@ function () {
   }]);
 
   return BudgetUI;
-}(); // Initialize
+}(); // App Initialization
 
 
 var budget = new Budget();
