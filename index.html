@@ -10,45 +10,52 @@
         <div class="budget">
             <h1 class="budget__title">Budget Tracker</h1>
             <div class="budget__app">
-            <!-- Left Panel -->
-             <div class="budget__inputs">
-             <div class="budget__input__box">
-                <h3 class="budget__subtitle">Add Budget</h3>
-                <input type="text" class="budget__input budget__input__desc" id="income__desc" placeholder="Budget Description">
-                <input type="number" class="budget__input budget__input__amount" id="income__amount" placeholder="Amount">
-                <button class="budget__btn budget__btn__add-income" id="add-income">Add Budget</button>
-        </div>
+                <!-- Left Panel: Inputs for Budget and Expenses -->
+                <div class="budget__inputs">
+                    <!-- Add Budget Section -->
+                    <div class="budget__input__box">
+                        <h3 class="budget__subtitle">Add Budget</h3>
+                        <input type="text" class="budget__input budget__input__desc" id="income__desc" placeholder="Budget Description">
+                        <input type="number" class="budget__input budget__input__amount" id="income__amount" placeholder="Amount">
+                        <button class="budget__btn budget__btn__add-income" id="add-income">Add Budget</button>
+                    </div>
 
-        <div class="budget__input__box">
-            <h3 class="budget__subtitle">Add Expense</h3>
-            <input type="text" class="budget__input budget__input__desc" id="expense__desc" placeholder="Expense Name">
-            <input type="number" class="budget__input budget__input__amount" id="expense-amount" placeholder="Amount">
-            <button class="budget__btn budget__btn__add-expense" id="add-expense">Add Expense</button>
-        </div>
+                    <!-- Add Expense Section -->
+                    <div class="budget__input__box">
+                        <h3 class="budget__subtitle">Add Expense</h3>
+                        <input type="text" class="budget__input budget__input__desc" id="expense__desc" placeholder="Expense Name">
+                        <input type="number" class="budget__input budget__input__amount" id="expense-amount" placeholder="Amount">
+                        <button class="budget__btn budget__btn__add-expense" id="add-expense">Add Expense</button>
+                    </div>
 
-        <button class="budget__btn budget__btn__reset" id="reset__all">Reset All</button>
-        </div>
-        <!-- Right Panel -->
-        <div class="budget__display">
-            <div class="budget summary">
-                <div class="budget__card">Total Budget: $<span id="total__budget">0</span></div>
-                <div class="budget__card">Total Expenses: $<span id="total__expenses">0</span></div>
-                <div class="budget__card">Budget Left: $<span id="budget__left">0</span></div>
-        </div>
+                    <!-- Reset Button -->
+                    <button class="budget__btn budget__btn__reset" id="reset__all">Reset All</button>
+                </div>
+                <!-- End Left Panel -->
 
-        <h3 class="budget__subtitle">Expense History:</h3>
-        <table class="budget__table">
-            <thead>
-                <tr>
-                    <th>Expense Name</th>
-                    <th>Amount</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody class="budget__list" id="expense__list"></tbody>
-        </table>
-        </div>
-        </div>
+                <!-- Right Panel: Budget Summary and Expense History -->
+                <div class="budget__display">
+                    <div class="budget summary">
+                        <div class="budget__card">Total Budget: $<span id="total__budget">0</span></div>
+                        <div class="budget__card">Total Expenses: $<span id="total__expenses">0</span></div>
+                        <div class="budget__card">Budget Left: $<span id="budget__left">0</span></div>
+                    </div>
+
+                    <!-- Expense History Table -->
+                    <h3 class="budget__subtitle">Expense History:</h3>
+                    <table class="budget__table">
+                        <thead>
+                            <tr>
+                                <th>Expense Name</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="budget__list" id="expense__list"></tbody>
+                    </table>
+                </div>
+                <!-- End Right Panel -->
+            </div>
         </div>
         <script src="script.js"></script>
     </body>
